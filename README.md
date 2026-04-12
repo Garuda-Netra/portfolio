@@ -1,25 +1,24 @@
 # Cybersecurity Portfolio
 
-This is my personal cybersecurity portfolio website.
-I built it to share my work, learning journey, and projects in a simple and professional way.
-The project is frontend-only, so it is easy to run and maintain.
+This is my personal cybersecurity portfolio.
+I built it to showcase my journey in cybersecurity, including projects, certifications, hands-on practice, and the kind of work I enjoy building.
 
-## Overview
+The site is frontend-only, fast to run, and easy to maintain.
 
-You will find:
+## What You Will Find
 
-- A short introduction and profile section
-- Skills, projects, training, and certifications
-- Blog posts and achievements
-- A contact form
-- Interactive security-themed UI elements
+- Hero and profile introduction
+- Skills, projects, internships, training, and certifications
+- Blog highlights and achievements
+- Contact section with social links
+- Security-themed interactions (including a built-in CTF flow)
 
 ## Tech Stack
 
 - TypeScript
 - Vite
 - Tailwind CSS
-- Vanilla JavaScript/DOM utilities
+- Vanilla JavaScript DOM utilities
 
 ## Quick Start
 
@@ -29,33 +28,33 @@ Install dependencies:
 npm install
 ```
 
-Start the development server:
+Run the development server:
 
 ```bash
 npm run dev
 ```
 
-Build for production:
+Create a production build:
 
 ```bash
 npm run build
 ```
 
-Preview the production build:
+Preview the production build locally:
 
 ```bash
 npm run preview
 ```
 
-## Project Scripts
+## Available Scripts
 
-- `npm run dev`: Starts the local development server
-- `npm run build`: Runs type checks and creates the production build
-- `npm run preview`: Previews the production build locally
+- `npm run dev` starts the local development server
+- `npm run build` runs type checks and builds production assets
+- `npm run preview` serves the built output for local verification
 
-## Update Portfolio Content
+## Content Files
 
-Edit these files to update content:
+Update portfolio content from these files:
 
 - `src/data/profile.ts`
 - `src/data/skills.ts`
@@ -66,9 +65,9 @@ Edit these files to update content:
 
 ## Contact Form Setup
 
-This project uses Formspree to send contact form messages.
+The contact form is configured with Formspree.
 
-Update the endpoint in `src/data/localSettings.ts`:
+Set your endpoint in `src/data/localSettings.ts`:
 
 ```ts
 contactForm: {
@@ -79,14 +78,21 @@ contactForm: {
 }
 ```
 
-## Static Files
+## CTF Flags (Exact)
 
-Keep static uploads in:
+These are the exact CTF flags currently used in the portfolio challenge:
+
+- `FLAG{portfolio_source_mapper_2026}`
+- `FLAG{devtools_console_trace_2026}`
+- `FLAG{dom_observer_hidden_node_2026}`
+- `FLAG{base64_terminal_decoder_2026}`
+
+## Static Upload Paths
 
 - `public/uploads/profile/`
 - `public/uploads/resume/`
 
 ## Notes
 
-- This project does not need a backend server.
-- Production build files are generated in `dist/`.
+- No backend server is required.
+- Production files are generated in `dist/`.
