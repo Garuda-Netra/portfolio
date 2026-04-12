@@ -82,10 +82,10 @@ contactForm: {
 
 These are the exact CTF flags currently used in the portfolio challenge:
 
-- `FLAG{portfolio_source_mapper_2026}`
-- `FLAG{devtools_console_trace_2026}`
-- `FLAG{dom_observer_hidden_node_2026}`
-- `FLAG{base64_terminal_decoder_2026}`
+- `FLAG{prince_security_breach_2026}`
+- `FLAG{console_hacker_2026}`
+- `FLAG{hidden_in_the_shadows_2026}`
+- `FLAG{base64_master_2026}`
 
 ## Static Upload Paths
 

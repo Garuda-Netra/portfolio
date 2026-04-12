@@ -6,6 +6,13 @@ const LEGACY_COMPLETED_KEY = 'princeCTFCompleted';
 const CTF_LEVELS = [1, 2, 3, 4] as const;
 const CTF_TOTAL_LEVELS = CTF_LEVELS.length;
 
+const LEGACY_FLAG_MAP: Record<string, string> = {
+  'FLAG{portfolio_source_mapper_2026}': 'FLAG{prince_security_breach_2026}',
+  'FLAG{devtools_console_trace_2026}': 'FLAG{console_hacker_2026}',
+  'FLAG{dom_observer_hidden_node_2026}': 'FLAG{hidden_in_the_shadows_2026}',
+  'FLAG{base64_terminal_decoder_2026}': 'FLAG{base64_master_2026}',
+};
+
 type Difficulty = 'Easy' | 'Medium';
 
 type CtfLevel = (typeof CTF_LEVELS)[number];
@@ -29,7 +36,7 @@ export const CTF_CHALLENGES: Record<CtfLevel, CtfChallenge> = {
     level: 1,
     name: 'The Source',
     difficulty: 'Easy',
-    flag: 'FLAG{portfolio_source_mapper_2026}',
+    flag: 'FLAG{prince_security_breach_2026}',
     hintText: 'Start with page source. Search for hidden comments and clues that reference terminal onboarding.',
     successMessage: 'Level 1 complete. You mapped the source trail correctly.',
     achievementText: 'Achievement unlocked: Source Inspector',
@@ -38,7 +45,7 @@ export const CTF_CHALLENGES: Record<CtfLevel, CtfChallenge> = {
     level: 2,
     name: 'The Console',
     difficulty: 'Easy',
-    flag: 'FLAG{devtools_console_trace_2026}',
+    flag: 'FLAG{console_hacker_2026}',
     hintText: 'Open DevTools Console and inspect startup logs. One clue is printed during CTF initialization.',
     successMessage: 'Level 2 complete. Console-driven recon worked perfectly.',
     achievementText: 'Achievement unlocked: Console Hacker',
@@ -47,7 +54,7 @@ export const CTF_CHALLENGES: Record<CtfLevel, CtfChallenge> = {
     level: 3,
     name: 'The Observer',
     difficulty: 'Medium',
-    flag: 'FLAG{dom_observer_hidden_node_2026}',
+    flag: 'FLAG{hidden_in_the_shadows_2026}',
     hintText: 'Inspect rendered sections and hidden DOM nodes. The clue is present in structure, not visible text.',
     successMessage: 'Level 3 complete. You observed what others usually miss.',
     achievementText: 'Achievement unlocked: Shadow Observer',
@@ -56,7 +63,7 @@ export const CTF_CHALLENGES: Record<CtfLevel, CtfChallenge> = {
     level: 4,
     name: 'The Decoder',
     difficulty: 'Medium',
-    flag: 'FLAG{base64_terminal_decoder_2026}',
+    flag: 'FLAG{base64_master_2026}',
     hintText: 'Find the encoded payload in Console logs and decode it with Base64 tools (for example, atob).',
     successMessage: 'Level 4 complete. You decoded the final payload successfully.',
     achievementText: 'Achievement unlocked: Code Breaker',
@@ -91,6 +98,7 @@ function normalizeProgress(input: unknown): CtfProgress {
   const validFlags = challengeList().map((challenge) => challenge.flag);
   const capturedFlags = maybeFlags
     .filter((value): value is string => typeof value === 'string')
+    .map((flag) => LEGACY_FLAG_MAP[flag] ?? flag)
     .filter((flag, index, all) => all.indexOf(flag) === index)
     .filter((flag) => validFlags.includes(flag));
 
@@ -180,7 +188,7 @@ function statusLines(progress: CtfProgress): TerminalLine[] {
 function menuLines(): TerminalLine[] {
   return [
     line('╔══════════════════════════════════════════════════╗', 'ctfBorder', true),
-    line('║           🚩 CTF CHALLENGE SYSTEM 🚩             ║', 'ctfText', true),
+    line('║           🚩 CTF CHALLENGE SYSTEM 🚩            ║', 'ctfText', true),
     line('╠══════════════════════════════════════════════════╣', 'ctfBorder', true),
     line('║                                                  ║', 'ctfBorder', true),
     line('║   4 flags are hidden in this portfolio flow.     ║', 'ctfText', true),

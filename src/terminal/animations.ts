@@ -1,4 +1,5 @@
 import type { TerminalLine, TerminalSegment } from './commands';
+import { playKeystroke } from './audio';
 
 export interface TypingOptions {
   speed?: number;
@@ -103,6 +104,11 @@ export async function typeLine(
 
       span.textContent = `${span.textContent ?? ''}${char}`;
       options?.onProgress?.();
+      
+      if (char.trim() !== '') {
+        playKeystroke();
+      }
+
       await delay(effectiveSpeed);
     }
   }

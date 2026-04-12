@@ -277,6 +277,10 @@
   overflow: visible;
 }
 
+.hero-profile-shell.is-held {
+  animation-play-state: paused;
+}
+
 .hero-profile-shell::before {
   content: '';
   position: absolute;
@@ -338,7 +342,7 @@
   object-fit: cover;
   object-position: center 28%;
   border: 1px solid rgba(var(--accent-cyan-rgb), 0.18);
-  filter: saturate(1.04) contrast(1.03);
+  filter: grayscale(1) saturate(0.78) contrast(1.08);
   transition: filter 0.42s ease, transform 0.42s ease;
 }
 
@@ -347,9 +351,18 @@
     filter: grayscale(1) saturate(0.78) contrast(1.08);
   }
 
-  .hero-profile-shell:hover .hero-profile-photo {
+  .hero-profile-shell:hover .hero-profile-photo,
+  .hero-profile-shell.is-color .hero-profile-photo {
     filter: grayscale(0) saturate(1.04) contrast(1.03);
     transform: scale(1.015);
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .hero-profile-shell.is-color .hero-profile-photo,
+  .hero-profile-shell:active .hero-profile-photo {
+    filter: grayscale(0) saturate(1.04) contrast(1.03);
+    transform: scale(1.01);
   }
 }
 
@@ -714,54 +727,6 @@
 [data-theme="light"] .about-highlight {
   color: #0f172a;
   border-bottom-color: rgba(15, 23, 42, 0.35);
-}
-
-.about-stats-grid {
-  display: grid;
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  gap: 0.9rem;
-}
-
-@media (min-width: 640px) {
-  .about-stats-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-
-@media (min-width: 1024px) {
-  .about-stats-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-}
-
-.about-stat-card {
-  padding: 1rem;
-  text-align: center;
-  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
-}
-
-.about-stat-card:hover {
-  transform: translateY(-5px);
-  border-color: rgba(var(--accent-cyan-rgb), 0.35);
-  box-shadow: 0 12px 28px rgba(var(--accent-cyan-rgb), 0.14);
-}
-
-.about-stat-icon {
-  font-size: 1.2rem;
-  margin-bottom: 0.4rem;
-}
-
-.about-stat-value {
-  font-size: 1.65rem;
-  font-weight: 800;
-  color: var(--accent-cyan);
-  line-height: 1.2;
-}
-
-.about-stat-label {
-  margin-top: 0.3rem;
-  font-size: 0.82rem;
-  color: var(--text-muted);
 }
 
 /* ========== SKILLS PREMIUM ========== */

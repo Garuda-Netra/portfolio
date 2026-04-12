@@ -19,14 +19,8 @@ export default function Hero(): string {
 
       <!-- Desktop Social Rail -->
       <div id="hero-social-desktop" class="hero-social-rail hidden lg:flex" aria-label="Social links">
-        <a href="https://github.com/Garuda-Netra" target="_blank" rel="noreferrer" aria-label="GitHub profile" class="hero-social-link">
-          <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.22c0 4.52 2.87 8.35 6.84 9.7c.5.1.68-.22.68-.5v-1.74c-2.78.62-3.37-1.22-3.37-1.22c-.45-1.19-1.11-1.5-1.11-1.5c-.9-.63.07-.62.07-.62c1 .07 1.52 1.04 1.52 1.04c.88 1.56 2.31 1.11 2.87.84c.09-.66.34-1.11.62-1.36c-2.22-.26-4.56-1.15-4.56-5.12c0-1.13.39-2.06 1.03-2.79c-.1-.26-.45-1.31.1-2.72c0 0 .84-.28 2.75 1.06A9.22 9.22 0 0 1 12 6.93c.82 0 1.66.11 2.44.34c1.9-1.34 2.74-1.06 2.74-1.06c.56 1.41.21 2.46.1 2.72c.64.73 1.03 1.66 1.03 2.79c0 3.98-2.34 4.86-4.57 5.11c.36.32.67.95.67 1.92v2.85c0 .27.18.6.69.5A10.23 10.23 0 0 0 22 12.22C22 6.58 17.52 2 12 2Z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/prince-kumar8/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile" class="hero-social-link">
-          <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M6.94 8.5a1.91 1.91 0 1 0 0-3.82a1.91 1.91 0 0 0 0 3.82M5.3 9.98h3.28v9.84H5.3zm5.35 0h3.14v1.34h.05c.44-.82 1.52-1.68 3.13-1.68c3.35 0 3.97 2.26 3.97 5.18v5h-3.28v-4.44c0-1.06-.02-2.43-1.44-2.43c-1.45 0-1.67 1.16-1.67 2.35v4.52h-3.28z"/></svg>
-        </a>
-        <a href="mailto:princekumaarr2005@gmail.com" aria-label="Email address" class="hero-social-link">
-          <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M3 5h18a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1m0 2v.51l9 5.4l9-5.4V7l-9 5.4z"/></svg>
+        <a href="https://wa.me/918271915751" target="_blank" rel="noreferrer" aria-label="WhatsApp chat" class="hero-social-link">
+          <svg viewBox="0 0 24 24" aria-hidden="true" class="w-4 h-4"><path fill="currentColor" d="M12.04 2C6.59 2 2.17 6.42 2.17 11.87c0 1.75.46 3.47 1.33 4.99L2 22l5.27-1.38a9.82 9.82 0 0 0 4.77 1.22h.01c5.45 0 9.87-4.42 9.87-9.87A9.88 9.88 0 0 0 12.04 2Zm0 18.05h-.01a8.19 8.19 0 0 1-4.17-1.15l-.3-.18-3.12.82.83-3.04-.2-.32a8.19 8.19 0 0 1-1.26-4.31c0-4.52 3.67-8.2 8.2-8.2a8.2 8.2 0 0 1 8.2 8.2c0 4.52-3.68 8.18-8.17 8.18Zm4.5-6.14c-.25-.12-1.47-.72-1.7-.8c-.23-.09-.39-.13-.55.12c-.16.25-.64.8-.78.96c-.15.16-.29.19-.54.06c-.25-.12-1.04-.38-1.98-1.22c-.73-.65-1.23-1.46-1.37-1.7c-.14-.25-.01-.38.11-.5c.11-.11.25-.29.37-.43c.12-.15.16-.25.24-.41c.08-.17.04-.31-.02-.43c-.06-.12-.55-1.33-.75-1.82c-.2-.48-.4-.42-.55-.43h-.47c-.16 0-.43.06-.66.31c-.23.25-.87.85-.87 2.07c0 1.22.89 2.4 1.01 2.56c.12.16 1.74 2.65 4.2 3.72c.59.26 1.05.41 1.41.52c.59.19 1.12.16 1.54.1c.47-.07 1.47-.6 1.68-1.18c.21-.58.21-1.08.15-1.18c-.06-.09-.23-.15-.48-.27Z"/></svg>
         </a>
       </div>
 

@@ -44,32 +44,6 @@ Status: Always Learning</pre>
           </p>
         </div>
       </div>
-
-      <div id="about-stats-grid" class="about-stats-grid mt-12">
-        <article class="glass-card about-stat-card animate-on-scroll" data-about-stat>
-          <div class="about-stat-icon" aria-hidden="true">&#9873;</div>
-          <div class="about-stat-value" data-target="50">0</div>
-          <p class="about-stat-label">CTF Challenges Solved</p>
-        </article>
-
-        <article class="glass-card about-stat-card animate-on-scroll stagger-1" data-about-stat>
-          <div class="about-stat-icon" aria-hidden="true">&#9881;</div>
-          <div class="about-stat-value" data-target="10">0</div>
-          <p class="about-stat-label">Security Tools Mastered</p>
-        </article>
-
-        <article class="glass-card about-stat-card animate-on-scroll stagger-2" data-about-stat>
-          <div class="about-stat-icon" aria-hidden="true">&#128187;</div>
-          <div class="about-stat-value" data-target="6">0</div>
-          <p class="about-stat-label">Major Projects Built</p>
-        </article>
-
-        <article class="glass-card about-stat-card animate-on-scroll stagger-3" data-about-stat>
-          <div class="about-stat-icon" aria-hidden="true">&#128421;</div>
-          <div class="about-stat-value" data-target="6">0</div>
-          <p class="about-stat-label">Operating Systems Used</p>
-        </article>
-      </div>
     </div>
   `;
 

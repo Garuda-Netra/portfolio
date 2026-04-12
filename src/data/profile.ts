@@ -35,7 +35,6 @@ export type ProfileStructureData = {
 
 export type AboutContentData = {
   paragraphs: string[];
-  stats: Array<{ label: string; value: number }>;
 };
 
 export type EducationContentData = {
@@ -108,12 +107,6 @@ export const aboutContentData: AboutContentData = {
     'My focus is on practical security work: network analysis, vulnerability discovery, and investigation-driven learning through labs and CTFs.',
     'During my internship at Redynox, I gained hands-on exposure to threat awareness, common risk identification, and the day-to-day thinking process used by security teams.',
     'I keep learning by building projects like TriNetra and Anveshana Vidya, where I combine development skills with real security problem solving.'
-  ],
-  stats: [
-    { label: 'National/Global CTF Events', value: 3 },
-    { label: 'Job Simulations Completed', value: 4 },
-    { label: 'Major Security Projects', value: 3 },
-    { label: 'Certifications Earned', value: 9 }
   ]
 };
 

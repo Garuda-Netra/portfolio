@@ -144,18 +144,23 @@ canvas {
   position: fixed;
   inset: 0;
   z-index: 12000;
-  background: linear-gradient(135deg, rgba(5, 10, 20, 0.96), rgba(10, 15, 30, 0.96));
+  background:
+    radial-gradient(95% 78% at 50% 45%, rgba(0, 153, 255, 0.11) 0%, rgba(0, 153, 255, 0) 60%),
+    linear-gradient(145deg, rgba(1, 3, 8, 0.99), rgba(2, 7, 16, 0.99) 58%, rgba(1, 3, 9, 1));
   display: grid;
   place-items: center;
-  overflow: hidden;
   backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
 }
 
 .site-loader-bg-blur {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 50%, rgba(0, 229, 255, 0.05) 0%, transparent 70%);
-  filter: blur(40px);
+  background:
+    radial-gradient(circle at 50% 52%, rgba(0, 229, 255, 0.08) 0%, rgba(0, 229, 255, 0.02) 40%, transparent 72%),
+    radial-gradient(circle at 70% 34%, rgba(124, 58, 237, 0.06) 0%, transparent 62%);
+  filter: blur(54px);
+  opacity: 0.9;
   pointer-events: none;
 }
 
@@ -164,9 +169,9 @@ canvas {
   left: 0;
   width: 100%;
   height: 50%;
-  background: linear-gradient(120deg, rgba(5, 10, 20, 0.4), rgba(13, 27, 42, 0.4));
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: linear-gradient(125deg, rgba(1, 4, 11, 0.88), rgba(3, 10, 22, 0.82));
+  backdrop-filter: blur(10px) brightness(0.78);
+  -webkit-backdrop-filter: blur(10px) brightness(0.78);
   transition: transform 200ms cubic-bezier(0.2, 0.8, 0.2, 1), opacity 200ms ease;
   border: 0;
 }
@@ -191,7 +196,7 @@ canvas {
   position: absolute;
   width: 2px;
   height: 2px;
-  background: rgba(0, 229, 255, 0.4);
+  background: rgba(0, 229, 255, 0.3);
   border-radius: 50%;
   animation: float-particle 6s infinite ease-in-out;
   filter: blur(0.5px);
@@ -247,7 +252,7 @@ canvas {
   transform: translate(-50%, -50%);
   width: 300px;
   height: 300px;
-  background: radial-gradient(circle, rgba(0, 229, 255, 0.08), transparent);
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.065), transparent);
   border-radius: 50%;
   filter: blur(40px);
   pointer-events: none;
@@ -322,6 +327,7 @@ canvas {
   background: rgba(var(--accent-cyan-rgb), 0.08);
   position: relative;
   backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
 }
 
 .site-loader-bar {
@@ -566,6 +572,25 @@ body.hero-enter #hero .hero-main-grid {
       padding-bottom: 120px;
     }
   }
+  @media (max-width: 1366px) {
+    .section-container {
+      padding-top: 30px;
+      padding-bottom: 30px;
+      min-height: 0;
+    }
+  }
+  @media (max-width: 1024px) {
+    .section-container {
+      padding-top: 24px;
+      padding-bottom: 24px;
+    }
+  }
+  @media (max-width: 767px) {
+    .section-container {
+      padding-top: 18px;
+      padding-bottom: 18px;
+    }
+  }
   .section-container:nth-child(even) {
     background-color: transparent;
   }
@@ -750,4 +775,48 @@ body.hero-enter #hero .hero-main-grid {
     opacity: 1;
     transform: translate3d(0, 0, 0);
   }
+}
+
+/* ========== FIXES: LAYOUT & RESPONSIVENESS ========== */
+#about {
+  min-height: 100vh !important;
+  min-height: 100dvh !important;
+  padding-bottom: 5.75rem !important;
+}
+#intercepted-message {
+  padding-top: 4.25rem !important;
+}
+
+@media (max-width: 1366px) {
+  #about {
+    padding-bottom: 3.4rem !important;
+    min-height: 100vh !important;
+    min-height: 100dvh !important;
+  }
+
+  #intercepted-message {
+    padding-top: 3rem !important;
+    min-height: 0 !important;
+  }
+}
+
+@media (max-width: 767px) {
+  #about {
+    min-height: auto !important;
+    padding-bottom: 2.2rem !important;
+  }
+
+  #intercepted-message {
+    padding-top: 1.95rem !important;
+  }
+
+  #intercepted-message .text-center.mb-10 {
+    margin-bottom: 1.25rem !important;
+  }
+}
+
+pre, .encrypted-payload, code {
+  white-space: pre-wrap !important;
+  word-wrap: break-word !important;
+  overflow-wrap: break-word !important;
 }

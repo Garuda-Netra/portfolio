@@ -6,6 +6,7 @@ import {
   type TerminalLine,
 } from './commands';
 import { createParticles, delay, runFlicker, typeLine, typeLines } from './animations';
+import { playKeystroke, playStructuralKeystroke, playModifierKeystroke, playArrowKeystroke, toggleSound, isSoundEnabled } from './audio';
 
 let terminalFontLoaded = false;
 
@@ -39,6 +40,7 @@ interface TerminalElements {
   caret: HTMLSpanElement;
   closeButtons: NodeListOf<HTMLButtonElement>;
   maxButton: HTMLButtonElement;
+  soundButton: HTMLButtonElement;
 }
 
 interface TerminalState {
@@ -127,6 +129,7 @@ export function createTerminalMarkup(): string {
           <div class="term-title">${PROMPT}</div>
 
           <div class="term-actions">
+            <button type="button" class="term-action-btn" data-term-sound aria-label="Toggle sound">🔇</button>
             <button type="button" class="term-action-btn" data-term-maximize aria-label="Toggle maximize">&#9723;</button>
             <button type="button" class="term-action-btn term-action-btn-close" data-term-close aria-label="Close terminal">&times;</button>
           </div>
@@ -172,8 +175,9 @@ function ensureTerminalMarkup(root: HTMLElement): TerminalElements {
   const mirror = root.querySelector<HTMLSpanElement>('#term-input-mirror');
   const caret = root.querySelector<HTMLSpanElement>('#term-caret');
   const maxButton = root.querySelector<HTMLButtonElement>('[data-term-maximize]');
+  const soundButton = root.querySelector<HTMLButtonElement>('[data-term-sound]');
 
-  if (!overlay || !modal || !output || !input || !ghost || !mirror || !caret || !maxButton) {
+  if (!overlay || !modal || !output || !input || !ghost || !mirror || !caret || !maxButton || !soundButton) {
     throw new Error('Terminal markup could not be initialized.');
   }
 
@@ -190,6 +194,7 @@ function ensureTerminalMarkup(root: HTMLElement): TerminalElements {
     caret,
     closeButtons,
     maxButton,
+    soundButton,
   };
 }
 
@@ -747,6 +752,11 @@ function attachEvents(state: TerminalState): void {
     state.elements.modal.classList.toggle('term-maximized');
   });
 
+  state.elements.soundButton.addEventListener('click', () => {
+    const enabled = toggleSound();
+    state.elements.soundButton.textContent = enabled ? '🔊' : '🔇';
+  });
+
   state.elements.overlay.addEventListener('click', (event) => {
     if (event.target === state.elements.overlay) {
       closeTerminal(state);
@@ -825,6 +835,17 @@ function attachEvents(state: TerminalState): void {
   });
 
   state.elements.input.addEventListener('keydown', (event) => {
+    const structuralKeys = ['Backspace', 'Enter', 'Tab', 'CapsLock', 'Escape', 'Delete'];
+    const modifierKeys = ['Shift', 'Control', 'Alt', ' '];
+    const arrowKeys = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
+    
+    if (structuralKeys.includes(event.key)) {
+      playStructuralKeystroke();
+    } else if (modifierKeys.includes(event.key)) {
+      playModifierKeystroke();
+    } else if (arrowKeys.includes(event.key)) {
+      playArrowKeystroke();
+    }
 
     if (event.key === 'Enter') {
       event.preventDefault();
@@ -865,6 +886,10 @@ function attachEvents(state: TerminalState): void {
           updateGhostSuggestion(state);
         }
       }
+    }
+
+    if (event.key.length === 1 && !event.ctrlKey && !event.metaKey && !event.altKey) {
+      playKeystroke();
     }
   });
 

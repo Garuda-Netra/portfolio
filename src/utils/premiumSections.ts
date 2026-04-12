@@ -160,59 +160,6 @@ function initParallaxMicroEffect(): void {
   window.addEventListener('scroll', onScroll, { passive: true });
 }
 
-function initAboutCounters(): void {
-  const statCards = document.querySelectorAll<HTMLElement>('[data-about-stat]');
-  if (statCards.length === 0) {
-    return;
-  }
-
-  const seen = new WeakSet<HTMLElement>();
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
-      if (!entry.isIntersecting) {
-        return;
-      }
-
-      const card = entry.target as HTMLElement;
-      if (seen.has(card)) {
-        return;
-      }
-      seen.add(card);
-
-      const valueNode = card.querySelector<HTMLElement>('.about-stat-value[data-target]');
-      if (!valueNode) {
-        return;
-      }
-
-      const target = Number(valueNode.dataset.target ?? '0');
-      let start: number | null = null;
-      const duration = 1200;
-
-      const animate = (timestamp: number): void => {
-        if (start === null) {
-          start = timestamp;
-        }
-
-        const progress = Math.min(1, (timestamp - start) / duration);
-        const current = Math.floor(target * progress);
-        valueNode.textContent = `${current}+`;
-
-        if (progress < 1) {
-          requestAnimationFrame(animate);
-        } else {
-          valueNode.textContent = `${target}+`;
-        }
-      };
-
-      requestAnimationFrame(animate);
-      observer.unobserve(card);
-    });
-  }, { threshold: 0.35 });
-
-  statCards.forEach((card) => observer.observe(card));
-}
-
 function initSkillsFilters(): void {
   const filterButtons = document.querySelectorAll<HTMLButtonElement>('[data-skill-filter]');
   const cards = document.querySelectorAll<HTMLElement>('[data-skill-card]');
@@ -467,7 +414,6 @@ export function initPremiumSections(): void {
   initHeroTyping();
   initHeroButtonRipple();
   initTextSplitAnimation();
-  initAboutCounters();
   initSkillsFilters();
   initSkillsMeters();
   initSkillsCardStagger();
